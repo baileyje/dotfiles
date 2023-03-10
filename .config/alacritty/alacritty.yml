@@ -1,8 +1,5 @@
 live_config_reload: true
 
-import:
- - ~/.config/alacritty/themes/themes/tokyo-night.yaml
-
 env:
   TERM: xterm-256color
 
@@ -11,7 +8,7 @@ window:
     x: 5
     y: 5
   opacity: 1
-  decorations: None
+  decorations: Full
 
 scrolling:
   history: 10000
@@ -28,3 +25,154 @@ font:
   italic:
     family: MesloLGS Nerd Font
     style: Italic
+  bold_italic:
+    family: MesloLGS Nerd Font
+    style: Bold Italic
+
+draw_bold_text_with_bright_colors: true
+
+schemes:
+  # TokyoNight Alacritty Colors
+  day: &day
+    # Default colors
+    primary:
+      background: '0xe1e2e7'
+      foreground: '0x3760bf'
+
+    # Normal colors
+    normal:
+      black:   '0xe9e9ed'
+      red:     '0xf52a65'
+      green:   '0x587539'
+      yellow:  '0x8c6c3e'
+      blue:    '0x2e7de9'
+      magenta: '0x9854f1'
+      cyan:    '0x007197'
+      white:   '0x6172b0'
+
+    # Bright colors
+    bright:
+      black:   '0xa1a6c5'
+      red:     '0xf52a65'
+      green:   '0x587539'
+      yellow:  '0x8c6c3e'
+      blue:    '0x2e7de9'
+      magenta: '0x9854f1'
+      cyan:    '0x007197'
+      white:   '0x3760bf'
+
+    indexed_colors:
+    - { index: 16, color: '0xb15c00' }
+    - { index: 17, color: '0xc64343' }
+
+  night: &night
+    # Default colors
+    primary:
+      background: '0x1a1b26'
+      foreground: '0xc0caf5'
+
+    # Normal colors
+    normal:
+      black:   '0x15161e'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xbb9af7'
+      cyan:    '0x7dcfff'
+      white:   '0xa9b1d6'
+
+    # Bright colors
+    bright:
+      black:   '0x414868'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xbb9af7'
+      cyan:    '0x7dcfff'
+      white:   '0xc0caf5'
+
+    indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+
+  storm: &storm
+    # Default colors
+    primary:
+      background: '0x24283b'
+      foreground: '0xc0caf5'
+
+    # Normal colors
+    normal:
+      black:   '0x1d202f'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xbb9af7'
+      cyan:    '0x7dcfff'
+      white:   '0xa9b1d6'
+
+    # Bright colors
+    bright:
+      black:   '0x414868'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xbb9af7'
+      cyan:    '0x7dcfff'
+      white:   '0xc0caf5'
+
+    indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+
+  moon: &moon
+    # Default colors
+    primary:
+      background: '0x222436'
+      foreground: '0xc8d3f5'
+
+    # Normal colors
+    normal:
+      black:   '0x1b1d2b'
+      red:     '0xff757f'
+      green:   '0xc3e88d'
+      yellow:  '0xffc777'
+      blue:    '0x82aaff'
+      magenta: '0xc099ff'
+      cyan:    '0x86e1fc'
+      white:   '0x828bb8'
+
+    # Bright colors
+    bright:
+      black:   '0x444a73'
+      red:     '0xff757f'
+      green:   '0xc3e88d'
+      yellow:  '0xffc777'
+      blue:    '0x82aaff'
+      magenta: '0xc099ff'
+      cyan:    '0x86e1fc'
+      white:   '0xc8d3f5'
+
+    indexed_colors:
+    - { index: 16, color: '0xff966c' }
+    - { index: 17, color: '0xc53b53' }
+    
+colors: *night
+
+key_bindings:
+- { key: N, mods: Super, action: SpawnNewInstance }
+- { key: Q, mods: Super, action: Quit }
+- { key: W, mods: Super, action: Quit }
+- { key: C, mods: Super, action: Copy }
+- { key: Copy, action: Copy }
+- { key: Paste, action: Paste }
+- { key: V, mods: Super, action: Paste }
+- { key: Equals, mods: Super, action: IncreaseFontSize }
+- { key: Minus, mods: Super, action: DecreaseFontSize }
+- { key: Key0, mods: Super, action: ResetFontSize }
+- { key: F, mods: Super, action: ToggleFullScreen }
+- { key: Comma, mods: Super, command: { program: "sh", args: [ "-c", "open ~/.config/alacritty/alacritty.yml" ] } }
