@@ -31,3 +31,8 @@ git clone --bare https://github.com/bitbutcher/dotfiles dotfiles
 git --git-dir=dotfiles --work-dir=. checkout master .
 popd > /dev/null
 ```
+
+## Updating Configuration
+``` bash
+dotfiles fetch origin master:master
+```
