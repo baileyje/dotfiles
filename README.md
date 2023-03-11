@@ -1,9 +1,9 @@
 # My Dot Files
 A set of portable (hopefully) configuration files to reduce setup time and consistency for new development environments
 
-### Prerequisites
+## Prerequisites
 
-## MacOS
+### MacOS
 ``` bash
 xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -13,7 +13,7 @@ brew install --cask alacritty brave-browser kitty postman vscodium
 brew tap homebrew/cask-fonts && brew install --cask font-meslo-lg-nerd-font
 ```
 
-## Universal
+### Universal
 ``` bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 nvm install --lts
