@@ -18,8 +18,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 nvm install --lts
 nvm use --lts
 npm install -g npm@latest yarn
-python install 3.11
-python global 3.11
+python install 3.10
+python global 3.10
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
