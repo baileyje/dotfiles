@@ -28,7 +28,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ``` bash
 pushd ~ > /dev/null
 git clone --bare https://github.com/bitbutcher/dotfiles dotfiles
-git --git-dir=dotfiles --work-dir=. checkout master .
+git --git-dir=./dotfiles --work-tree=. checkout master .
 popd > /dev/null
 ```
 
