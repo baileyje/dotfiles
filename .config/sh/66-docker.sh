@@ -1,6 +1,4 @@
-#!/usr/bin/env zsh
-
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 alias compose='docker-compose'
 alias compdev='compose --file compose-dev.yaml'
