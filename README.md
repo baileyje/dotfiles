@@ -13,6 +13,11 @@ brew install --cask alacritty brave-browser kitty postman vscodium
 brew tap homebrew/cask-fonts && brew install --cask font-meslo-lg-nerd-font
 ```
 
+### Arch
+``` bash
+paru -S alacritty kitty fd jenv lazygit pyenv ripgrep zoxide neovim-nightly tty-meslo-nerd
+```
+
 ### Universal
 ``` bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
