@@ -23,7 +23,7 @@ paru -S alacritty kitty fd fzf jenv lazygit pyenv ripgrep zoxide neovim-nightly 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 nvm install --lts
 nvm use --lts
-npm install -g npm@latest yarn
+npm install -g npm@latest yarn typescript
 pyenv install 3.10
 pyenv global 3.10
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
