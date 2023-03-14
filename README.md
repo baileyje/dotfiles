@@ -15,7 +15,7 @@ brew tap homebrew/cask-fonts && brew install --cask font-meslo-lg-nerd-font
 
 ### Arch
 ``` bash
-paru -S alacritty kitty fd jenv lazygit pyenv ripgrep zoxide neovim-nightly tty-meslo-nerd
+paru -S alacritty kitty fd fzf jenv lazygit pyenv ripgrep zoxide neovim-nightly tty-meslo-nerd zsh
 ```
 
 ### Universal
