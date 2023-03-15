@@ -10,7 +10,7 @@ xcode-select --install
 brew install fd fzf git jenv lazygit pyenv ripgrep starship zoxide
 brew install --HEAD neovim
 brew install --cask alacritty brave-browser kitty postman vscodium
-brew tap homebrew/cask-fonts && brew install --cask font-meslo-lg-nerd-font
+brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
 ```
 
 ### Arch
