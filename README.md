@@ -22,7 +22,8 @@ paru -S alacritty kitty fd fzf jenv lazygit pyenv ripgrep zoxide neovim-nightly 
 ``` bash
 pushd ~ > /dev/null
 git clone --bare --recurse-submodules -j8 https://github.com/bitbutcher/dotfiles dotfiles
-git --git-dir=./dotfiles --work-tree=. checkout master .
+git --git-dir=./dotfiles config --local --add remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+git --git-dir=./dotfiles --work-tree=. checkout -b master --track origin/master
 touch .gitconfig
 popd > /dev/null
 ```
