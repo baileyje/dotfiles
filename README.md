@@ -18,26 +18,31 @@ brew tap homebrew/cask-fonts && brew install --cask font-meslo-lg-nerd-font
 paru -S alacritty kitty fd fzf jenv lazygit pyenv ripgrep zoxide neovim-nightly tty-meslo-nerd zsh
 ```
 
-### Universal
-``` bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-nvm install --lts
-nvm use --lts
-npm install -g npm@latest yarn typescript
-pyenv install 3.10
-pyenv global 3.10
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
 ## Cloning Configuration
 ``` bash
 pushd ~ > /dev/null
-git clone --bare https://github.com/bitbutcher/dotfiles dotfiles
+git clone --bare --recurse-submodules -j8 https://github.com/bitbutcher/dotfiles dotfiles
 git --git-dir=./dotfiles --work-tree=. checkout master .
+touch .gitconfig
 popd > /dev/null
+```
+
+### Universal (in a new zsh shell)
+``` bash
+dots config --local status.showUntrackedFiles no
+nvm install --lts
+nvm use --lts
+npm install -g npm@latest yarn typescript neovim
+pyenv install 3.10
+pyenv global 3.10
+pip install --upgrade pip
+pip install pynvim neovim
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup default stable
+rustup component add rust-analyzer
 ```
 
 ## Updating Configuration
 ``` bash
-dotfiles fetch origin master:master
+dots fetch origin master:master
 ```

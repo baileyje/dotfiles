@@ -1,13 +1,13 @@
+#!/usr/bin/env zsh
+
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
-fi
-
-# Auto-completion
-# ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-
-# Key bindings
-# ------------
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+for dir in "/usr/local/opt/fzf/shell /usr/share/fzf"
+do
+  if [[ -d "$dir" ]]; then
+    # Auto-completion
+    [[ $- == *i* ]] && source "$dir/completion.zsh" 2> /dev/null
+    # Key bindings
+    source "$dir/key-bindings.zsh"
+  fi
+done
