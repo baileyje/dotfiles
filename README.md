@@ -44,5 +44,5 @@ rustup component add rust-analyzer
 
 ## Updating Configuration
 ``` bash
-dots fetch origin master:master
+dotsup
 ```

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
-alias vi='nvim'
-
 alias vim='nvim'
+
+alias vi='vim'
 
 export VISUAL='nvim'
 
