@@ -7,7 +7,7 @@ A set of portable (hopefully) configuration files to reduce setup time and consi
 ``` bash
 xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew install fd fzf git jenv lazygit pyenv ripgrep starship zoxide
+brew install fd fzf git jenv jq lazygit pyenv ripgrep starship zoxide
 brew install --HEAD neovim
 brew install --cask alacritty brave-browser kitty postman vscodium
 brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
@@ -15,7 +15,7 @@ brew tap homebrew/cask-fonts && brew install --cask font-fira-code-nerd-font
 
 ### Arch
 ``` bash
-paru -S alacritty kitty fd fzf jenv lazygit pyenv ripgrep zoxide neovim-nightly tty-meslo-nerd zsh
+paru -S alacritty kitty fd fzf jenv jq lazygit pyenv ripgrep zoxide neovim-nightly tty-meslo-nerd zsh postman code-oss
 ```
 
 ## Cloning Configuration
@@ -28,9 +28,10 @@ touch .gitconfig
 popd > /dev/null
 ```
 
-### Universal (in a new zsh shell)
+### Universal (!!! in a new zsh shell !!!)
 ``` bash
 dots config --local status.showUntrackedFiles no
+code.ext.inst
 nvm install --lts
 nvm use --lts
 npm install -g npm@latest yarn typescript neovim
@@ -46,4 +47,5 @@ rustup component add rust-analyzer
 ## Updating Configuration
 ``` bash
 dotsup
+code.ext.up # optionally install/update all your vscode extensions
 ```
