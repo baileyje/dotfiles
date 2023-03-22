@@ -5,7 +5,7 @@ if which codium > /dev/null; then code='codium'; fi
 dir="$HOME/.config/vscodium"
 alias code="$code --user-data-dir $dir --extensions-dir $dir/extensions"
 vscodium_plugins() {
-  file=$dir/extensions/extensions.json
+  file="$HOME/.config/vscodium/extensions/extensions.json"
   exts=($(jq -r ".[] | .identifier.id" $file  | tr "\n" " "))
   rm $file
   for ext in $exts; do 
