@@ -23,7 +23,10 @@ paru -S alacritty kitty fd fzf jenv jq lazygit pyenv ripgrep zoxide neovim-night
 pushd ~ > /dev/null
 git clone --bare --recurse-submodules -j8 https://github.com/bitbutcher/dotfiles dotfiles
 git --git-dir=./dotfiles config --local --add remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+git --git-dir=./dotfiles --work-tree=. fetch origin
+git --git-dir=./dotfiles --work-tree=. branch -d master
 git --git-dir=./dotfiles --work-tree=. checkout -b master --track origin/master
+git --git-dir=./dotfiles --work-tree=. submodule update --init --recursive
 touch .gitconfig
 popd > /dev/null
 ```
