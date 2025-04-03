@@ -1,9 +1,0 @@
-[alias]
-  br = branch
-  co = checkout
-  ci = commit -am
-  fo = fetch origin
-  rb = rebase -i
-  st = status
-[init]
-  defaultBranch = master
