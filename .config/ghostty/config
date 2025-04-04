@@ -1,0 +1,27 @@
+theme = catppuccin-mocha
+background-opacity = 0.95
+background-blur-radius = 10
+macos-titlebar-style = hidden
+
+font-family = JetBrainsMonoNL Nerd Font Mono
+font-size = 14
+cursor-style = block_hollow
+cursor-style-blink = false
+cursor-invert-fg-bg = true
+
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+
+quick-terminal-animation-duration = 0
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+
+
+# Similar Tmux but with Ghostty
+# (ctrl s for tmux -> cmb s for ghostty)
+keybind = super+s>r=reload_config
+keybind = super+s>x=close_surface
+keybind = super+s>,=toggle_quick_terminal
+keybind = super+i=inspector:toggle
+
+auto-update = check
+auto-update-channel = stable
