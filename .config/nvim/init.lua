@@ -1,2 +1,2 @@
-require("john.core")
-require("john.lazy")
+require("baileyje.core")
+require("baileyje.lazy")

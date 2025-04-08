@@ -26,11 +26,34 @@ return { -- LSP Configuration & Plugins
     },
   },
   config = function()
-    vim.diagnostic.config({
+    local basic_config = {
+      -- virtual_text = {
+      --   severity = {
+      --     max = vim.diagnostic.severity.WARN,
+      --   },
+      -- },
+      -- virtual_lines = {
+      --   severity = {
+      --     min = vim.diagnostic.severity.ERROR,
+      --   },
+      -- },
+      virtual_text = false,
+      virtual_lines = true,
+    }
+    local muted_config = {
       virtual_text = true,
-      -- virtual_lines = true,
-      -- signs = true,
-    })
+      virtual_lines = false,
+    }
+    vim.diagnostic.config(muted_config)
+    local diag_config_muted = true
+    vim.keymap.set("n", "gK", function()
+      diag_config_muted = not diag_config_muted
+      if diag_config_muted then
+        vim.diagnostic.config(muted_config)
+      else
+        vim.diagnostic.config(basic_config)
+      end
+    end, { desc = "Toggle diagnostic virtual_lines" })
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
       -- Create a function that lets us more easily define mappings specific LSP related items.
