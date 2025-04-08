@@ -7,23 +7,6 @@ return { -- LSP Configuration & Plugins
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "saghen/blink.cmp",
     "Hoffs/omnisharp-extended-lsp.nvim",
-
-    -- Useful status updates for LSP.
-    {
-      "j-hui/fidget.nvim",
-      opts = {
-        progress = {
-          display = {
-            done_icon = "✓", -- Icon shown when all LSP progress tasks are complete
-          },
-        },
-        notification = {
-          window = {
-            winblend = 0, -- Background color opacity in the notification window
-          },
-        },
-      },
-    },
   },
   config = function()
     local basic_config = {
@@ -180,9 +163,9 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      jsonls = {},
-      sqlls = {},
-      terraformls = {},
+      jsonls = {
+        filetypes = { "json", "jsonc" },
+      },
       yamlls = {},
       bashls = {},
       dockerls = {},
@@ -197,6 +180,7 @@ return { -- LSP Configuration & Plugins
           ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
         },
       },
+      -- csharp_ls = {},
       ts_ls = {
         on_attach = function(client)
           client.server_capabilities.documentFormattingProvider = false

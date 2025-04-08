@@ -15,7 +15,7 @@ return {
 		lazygit = { enabled = true },
 		notifier = {
 			enabled = true,
-			timeout = 3000,
+			timeout = 3000, -- default timeout in ms
 		},
 		picker = {
 			enabled = true,

@@ -47,6 +47,7 @@ return {
 				"c",
 				"python",
 				"c_sharp",
+				"regex",
 			},
 			incremental_selection = {
 				enable = true,
