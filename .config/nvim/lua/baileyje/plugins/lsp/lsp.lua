@@ -180,7 +180,6 @@ return { -- LSP Configuration & Plugins
           ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
         },
       },
-      -- csharp_ls = {},
       ts_ls = {
         on_attach = function(client)
           client.server_capabilities.documentFormattingProvider = false

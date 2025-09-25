@@ -1,49 +1,69 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/environment"
-source "$THEME_DIR/tokyonight"
+source "$THEME_DIR/current.sh"
 
 # Configure general bar appearance.
-bar=(
-    blur_radius="$BAR_BLUR_RADIUS"
-    border_color="$BAR_BORDER_COLOR"
-    color="$BAR_COLOR"
-    corner_radius="$BAR_CORNER_RADIUS"
-    height="$BAR_HEIGHT"
-    margin="$BAR_MARGIN"
-    position="$BAR_POSITION"
-    padding_left="$BAR_PADDING"
-    padding_right="$BAR_PADDING"
-    y_offset="$BAR_Y_OFFSET"
+bar_config=(
+  blur_radius="$BAR_BLUR_RADIUS"
+  border_color="$BAR_BORDER_COLOR"
+  color="$BAR_COLOR"
+  corner_radius="$BAR_CORNER_RADIUS"
+  height="$BAR_HEIGHT"
+  margin="$BAR_MARGIN"
+  position="$BAR_POSITION"
+  padding_left="$BAR_PADDING"
+  padding_right="$BAR_PADDING"
+  y_offset="$BAR_Y_OFFSET"
+  shadow=on
+  sticky=on
+  topmost=off
 )
-sketchybar --bar "${bar[@]}"
 
-# Configure default values for later defined items.
-default=(
-  background.color="$BACKGROUND_COLOR"
-  background.border_color="$BACKGROUND_BORDER_COLOR"
-  background.corner_radius="$BACKGROUND_CORNER_RADIUS"
-  background.height="$BACKGROUND_HEIGHT"
-  icon.drawing=off
+icon_defaults=(
+  icon.color="$ICON_COLOR"
   icon.font="$ICON_FONT"
-  label.align="$LABEL_ALIGN"
-  label.font="$LABEL_FONT"
-  label.color="$LABEL_COLOR"
-  label.highlight_color="$LABEL_HIGHLIGHT_COLOR"
-  label.y_offset="$LABEL_Y_OFFSET"
-  label.padding_left="$LABEL_PADDING"
-  label.padding_right="$LABEL_PADDING"
-  y_offset="$Y_OFFSET"
+  icon.padding_left="$PADDINGS"
+  icon.padding_right="$PADDINGS"
 )
-sketchybar --default "${default[@]}"
 
-# Left
-source "$ITEM_DIR/aerospace"
-source "$ITEM_DIR/spacer"
-source "$ITEM_DIR/front_app"
+label_defaults=(
+  label.color="$TEXT"
+  label.font="$LABEL_FONT"
+  label.padding_left="$PADDINGS"
+  label.padding_right="$PADDINGS"
+  label.highlight_color="$LABEL_HIGHLIGHT_COLOR"
+)
 
-# Right
-source "$ITEM_DIR/clock"
+background_defaults=(
+  background.color="$BACKGROUND_COLOR"
+  background.corner_radius=9
+  background.corner_radius="$BACKGROUND_CORNER_RADIUS"
+  background.padding_left="$PADDINGS"
+  background.padding_right="$PADDINGS"
+  background.height="$BACKGROUND_HEIGHT"
+)
+
+popup_defaults=(
+  popup.height=30
+  popup.horizontal=false
+  popup.background.border_color="$BLUE"
+  popup.background.border_width=2
+  popup.background.color="$MANTLE"
+  popup.background.corner_radius=11
+  popup.background.shadow.drawing=on
+)
+
+sketchybar --bar "${bar_config[@]}" \
+  --default \
+  updates=when_shown \
+  "${icon_defaults[@]}" \
+  "${label_defaults[@]}" \
+  "${background_defaults[@]}" \
+  "${popup_defaults[@]}"
+
+source "$ITEM_DIR/left.sh"
+source "$ITEM_DIR/right.sh"
 
 # Automatically apply configuration changes
 sketchybar --hotload on
