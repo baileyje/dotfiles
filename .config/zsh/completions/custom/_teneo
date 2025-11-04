@@ -1,0 +1,75 @@
+#compdef teneo
+
+_teneo() {
+    local line state
+
+    _arguments -C \
+        '1: :->subcommand' \
+        '2: :->subsubcommand' \
+        '*::arg:->args'
+
+    case $state in
+        subcommand)
+            local -a subcommands
+            subcommands=(
+                'changelog:Show Teneo CLI changelog'
+                'compose:Docker Compose commands'
+                'install:Install auxiliary files'
+                'project:Project maintenance tasks'
+                'yarn:Yarn commands'
+            )
+            _describe 'teneo' subcommands            ;;
+        subsubcommand)
+            case $line[1] in
+                compose)
+                    compadd -Q up down clean shell
+                    ;;
+                install)
+                    compadd -Q completions npmrc self
+                    ;;
+                project)
+                    compadd -Q upgrade
+                    ;;
+                yarn)
+                    compadd -Q add remove install link unlink
+                    ;;
+            esac
+            ;;
+        args)
+            case $line[1] in
+                compose)
+                    case $line[2] in
+                        up)
+                            compadd ${(f)"$(docker compose config --services)"}
+                            ;;
+                        down)
+                            compadd ${(f)"$(docker compose ps --all --services)"}
+                            ;;
+                    esac
+                    ;;
+                install)
+                    case $line[2] in
+                        completions)
+                            compadd -Q fish zsh bash
+                            ;;
+                    esac
+                    ;;
+                yarn)
+                    case $line[2] in
+                        link)
+                            # Use file completion
+                            _files
+                            ;;
+                        remove|unlink)
+                            if [[ -f package.json ]]; then
+                                compadd ${(f)"$(jq -r '.dependencies + .devDependencies | keys | .[]' package.json)"}
+                            fi
+                            ;;
+                    esac
+                    ;;
+            esac
+            ;;
+    esac
+}
+
+_teneo "$@"

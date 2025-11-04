@@ -1,14 +1,14 @@
 return {
-  "stevearc/oil.nvim",
-  ---@module 'oil'
-  ---@type oil.SetupOpts
-  opts = {
-    default_file_explorer = false,
-  },
-  dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-  lazy = false,
-  setup = function(_, opts)
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-  end,
+	"stevearc/oil.nvim",
+	---@module 'oil'
+	---@type oil.SetupOpts
+	opts = {
+		default_file_explorer = false,
+	},
+	dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+	-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+	lazy = false,
+	setup = function(_, opts)
+		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+	end,
 }

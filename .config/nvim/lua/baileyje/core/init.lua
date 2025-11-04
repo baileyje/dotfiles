@@ -1,3 +1,5 @@
 require("baileyje.core.options")
 require("baileyje.core.keymaps")
 require("baileyje.core.filetypes")
+require("baileyje.core.lsp")
+require("baileyje.core.mason-path")
